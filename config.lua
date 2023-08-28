@@ -1,16 +1,28 @@
 --AT_CourtSystem
 
 Config = {}
-Config.WEEBHOOK = ''
-Config.MaxLoan = 100000
-Config.LoanTime = 14 -- Days
-Config.LoanProfit = 1.20 -- 1.20 = +20% (قرض 100 الف يصير يطلب تسديد 120 الف)
 
+-- Webhook URL for notifications
+-- Make sure to replace this with your actual webhook URL
+Config.WEEBHOOK = Config.WEEBHOOK or ''  -- Empty string as default
+if Config.WEEBHOOK == '' then
+    print("Warning: Webhook URL is empty. Notifications will not be sent.")
+end
+
+-- Maximum loan amount
+Config.MaxLoan = Config.MaxLoan or 100000  -- 100000 as default
+-- Loan time in days
+Config.LoanTime = Config.LoanTime or 14  -- 14 days as default
+-- Loan profit rate
+-- For example, 1.20 means +20% profit (i.e., a loan of 100,000 would require repayment of 120,000)
+Config.LoanProfit = Config.LoanProfit or 1.20  -- 1.20 as default
+
+-- Available loan options in the menu
 Config.LoansMenu = {
     { value = '25000', label = '$قرض بقيمة 25,000' },
-    { value = '50000', label = '$قرض بقيمة 50,000'},
-    { value = '75000', label = '$قرض بقيمة 75,000'},
-    { value = '100000', label = '$قرض بقيمة 100,000'},
+    { value = '50000', label = '$قرض بقيمة 50,000' },
+    { value = '75000', label = '$قرض بقيمة 75,000' },
+    { value = '100000', label = '$قرض بقيمة 100,000' },
 }
 
 Config.ModelSpawns = {
